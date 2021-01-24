@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <IsAspNetCoreApp>true</IsAspNetCoreApp>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cosmos.Abstracts" Version="1.0.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.2" />
+  </ItemGroup>
+
+
+</Project>
