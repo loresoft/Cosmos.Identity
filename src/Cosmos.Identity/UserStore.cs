@@ -235,7 +235,8 @@ namespace Cosmos.Identity
             foreach (var claim in claims)
             {
                 var matched = user.Claims
-                    .Where(u => u.Value == claim.Value && u.Type == claim.Type);
+                    .Where(u => u.Value == claim.Value && u.Type == claim.Type)
+                    .ToList();
 
                 foreach (var m in matched)
                     user.Claims.Remove(m);
@@ -488,7 +489,8 @@ namespace Cosmos.Identity
             ValidateParameters(user, cancellationToken);
 
             var matched = user.Tokens
-                .Where(t => t.LoginProvider == loginProvider && t.Name == name);
+                .Where(t => t.LoginProvider == loginProvider && t.Name == name)
+                .ToList();
 
             foreach (var m in matched)
                 user.Tokens.Remove(m);

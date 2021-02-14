@@ -1,29 +1,35 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Cosmos.Identity.Tests
 {
-    public class UserPhoneNumberStoreTests
+    public class UserPhoneNumberStoreTests : TestServiceBase
     {
+        public UserPhoneNumberStoreTests(ITestOutputHelper outputHelper) : base(outputHelper)
+        {
+        }
+
         [Fact]
-        public void SetPhoneNumberAsyncTest()
+        public async Task SetPhoneNumberAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetPhoneNumberAsyncTest()
+        public async Task GetPhoneNumberAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetPhoneNumberConfirmedAsyncTest()
+        public async Task GetPhoneNumberConfirmedAsyncTest()
         {
 
         }
 
         [Fact]
-        public void SetPhoneNumberConfirmedAsyncTest()
+        public async Task SetPhoneNumberConfirmedAsyncTest()
         {
 
         }

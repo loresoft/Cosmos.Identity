@@ -1,47 +1,53 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Cosmos.Identity.Tests
 {
-    public class UserLockoutStoreTests
+    public class UserLockoutStoreTests : TestServiceBase
     {
+        public UserLockoutStoreTests(ITestOutputHelper outputHelper) : base(outputHelper)
+        {
+        }
+
         [Fact]
-        public void GetLockoutEndDateAsyncTest()
+        public async Task GetLockoutEndDateAsyncTest()
         {
 
         }
 
         [Fact]
-        public void SetLockoutEndDateAsyncTest()
+        public async Task SetLockoutEndDateAsyncTest()
         {
 
         }
 
         [Fact]
-        public void IncrementAccessFailedCountAsyncTest()
+        public async Task IncrementAccessFailedCountAsyncTest()
         {
 
         }
 
         [Fact]
-        public void ResetAccessFailedCountAsyncTest()
+        public async Task ResetAccessFailedCountAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetAccessFailedCountAsyncTest()
+        public async Task GetAccessFailedCountAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetLockoutEnabledAsyncTest()
+        public async Task GetLockoutEnabledAsyncTest()
         {
 
         }
 
         [Fact]
-        public void SetLockoutEnabledAsyncTest()
+        public async Task SetLockoutEnabledAsyncTest()
         {
 
         }

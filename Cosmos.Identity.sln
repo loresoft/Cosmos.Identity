@@ -3,9 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Identity", "src\Cosmos.Identity\Cosmos.Identity.csproj", "{280BCC06-DC66-48F4-89A5-BC7E15E6BD2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Identity", "src\Cosmos.Identity\Cosmos.Identity.csproj", "{280BCC06-DC66-48F4-89A5-BC7E15E6BD2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Identity.Tests", "test\Cosmos.Identity.Tests\Cosmos.Identity.Tests.csproj", "{F1F6A235-EDFB-48BB-97C8-098FA5F656A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Identity.Tests", "test\Cosmos.Identity.Tests\Cosmos.Identity.Tests.csproj", "{F1F6A235-EDFB-48BB-97C8-098FA5F656A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{2DBB4192-B9EF-43A0-A409-0EA1B63AA4D0}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		build\common.props = build\common.props
+		coveralls.ps1 = coveralls.ps1
+		coverlet.runsettings = coverlet.runsettings
+		README.md = README.md
+		build\sourcelink.props = build\sourcelink.props
+		build\version.props = build\version.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

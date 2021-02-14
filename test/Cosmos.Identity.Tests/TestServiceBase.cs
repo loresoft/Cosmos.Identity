@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit.Abstractions;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace Cosmos.Identity.Tests
 {
@@ -52,6 +53,26 @@ namespace Cosmos.Identity.Tests
             services
                 .AddIdentity<IdentityUser, IdentityRole>()
                 .AddCosmosStores();
+        }
+
+
+        protected virtual IdentityUser CreateUser()
+        {
+            string userName = "UserName" + DateTime.Now.Ticks;
+
+            var user = new IdentityUser
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = userName,
+                NormalizedUserName = userName.ToUpperInvariant(),
+                Email = $"{userName}@mailinator.com",
+                NormalizedEmail = $"{userName}@mailinator.com".ToUpperInvariant(),
+                EmailConfirmed = true,
+                PhoneNumber = "888-555-1212",
+                PhoneNumberConfirmed = true
+            };
+
+            return user;
         }
     }
 

@@ -1,29 +1,35 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Cosmos.Identity.Tests
 {
-    public class UserLoginStoreTests
+    public class UserLoginStoreTests : TestServiceBase
     {
+        public UserLoginStoreTests(ITestOutputHelper outputHelper) : base(outputHelper)
+        {
+        }
+
         [Fact]
-        public void AddLoginAsyncTest()
+        public async Task AddLoginAsyncTest()
         {
 
         }
 
         [Fact]
-        public void RemoveLoginAsyncTest()
+        public async Task RemoveLoginAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetLoginsAsyncTest()
+        public async Task GetLoginsAsyncTest()
         {
 
         }
 
         [Fact]
-        public void FindByLoginAsyncTest()
+        public async Task FindByLoginAsyncTest()
         {
 
         }

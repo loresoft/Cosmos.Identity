@@ -32,6 +32,19 @@ namespace Cosmos.Identity
             //Type roleStoreType = typeof(RoleStore<>).MakeGenericType(roleType);
 
             builder.Services.TryAddScoped(typeof(IUserStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserLoginStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserClaimStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserPasswordStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserSecurityStampStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserEmailStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserLockoutStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserPhoneNumberStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IQueryableUserStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserTwoFactorStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserAuthenticationTokenStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserAuthenticatorKeyStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserTwoFactorRecoveryCodeStore<>).MakeGenericType(userType), userStoreType);
+            builder.Services.TryAddScoped(typeof(IUserRoleStore<>).MakeGenericType(userType), userStoreType);
             //builder.Services.TryAddScoped(typeof(IRoleStore<>).MakeGenericType(roleType), roleStoreType);
 
             return builder;

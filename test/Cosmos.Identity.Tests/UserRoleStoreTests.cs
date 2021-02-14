@@ -1,35 +1,41 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Cosmos.Identity.Tests
 {
-    public class UserRoleStoreTests
+    public class UserRoleStoreTests : TestServiceBase
     {
+        public UserRoleStoreTests(ITestOutputHelper outputHelper) : base(outputHelper)
+        {
+        }
+
         [Fact]
-        public void AddToRoleAsyncTest()
+        public async Task AddToRoleAsyncTest()
         {
 
         }
 
         [Fact]
-        public void RemoveFromRoleAsyncTest()
+        public async Task RemoveFromRoleAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetRolesAsyncTest()
+        public async Task GetRolesAsyncTest()
         {
 
         }
 
         [Fact]
-        public void IsInRoleAsyncTest()
+        public async Task IsInRoleAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetUsersInRoleAsyncTest()
+        public async Task GetUsersInRoleAsyncTest()
         {
 
         }

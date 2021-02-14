@@ -1,23 +1,29 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Cosmos.Identity.Tests
 {
-    public class UserTwoFactorRecoveryCodeStoreTests
+    public class UserTwoFactorRecoveryCodeStoreTests : TestServiceBase
     {
+        public UserTwoFactorRecoveryCodeStoreTests(ITestOutputHelper outputHelper) : base(outputHelper)
+        {
+        }
+
         [Fact]
-        public void ReplaceCodesAsyncTest()
+        public async Task ReplaceCodesAsyncTest()
         {
 
         }
 
         [Fact]
-        public void RedeemCodeAsyncTest()
+        public async Task RedeemCodeAsyncTest()
         {
 
         }
 
         [Fact]
-        public void CountCodesAsyncTest()
+        public async Task CountCodesAsyncTest()
         {
 
         }

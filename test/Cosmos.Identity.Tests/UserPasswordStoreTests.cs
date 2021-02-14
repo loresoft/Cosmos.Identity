@@ -1,23 +1,29 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Cosmos.Identity.Tests
 {
-    public class UserPasswordStoreTests
+    public class UserPasswordStoreTests : TestServiceBase
     {
+        public UserPasswordStoreTests(ITestOutputHelper outputHelper) : base(outputHelper)
+        {
+        }
+
         [Fact]
-        public void SetPasswordHashAsyncTest()
+        public async Task SetPasswordHashAsyncTest()
         {
 
         }
 
         [Fact]
-        public void GetPasswordHashAsyncTest()
+        public async Task GetPasswordHashAsyncTest()
         {
 
         }
 
         [Fact]
-        public void HasPasswordAsyncTest()
+        public async Task HasPasswordAsyncTest()
         {
 
         }
