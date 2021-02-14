@@ -128,5 +128,89 @@ namespace Cosmos.Identity.Tests
 
             role.Name.Should().Be(name);
         }
+
+        [Fact]
+        public async Task CreateAsyncTest()
+        {
+            var store = Services.GetRequiredService<IRoleStore<IdentityRole>>();
+
+            var role = CreateRole();
+
+            var createResult = await store.CreateAsync(role, CancellationToken.None);
+            createResult.Should().Be(IdentityResult.Success);
+        }
+
+        [Fact]
+        public async Task CreateAsyncNullTest()
+        {
+            var store = Services.GetRequiredService<IRoleStore<IdentityRole>>();
+
+            IdentityRole role = null;
+
+            Func<Task> testFunction = async () => await store.CreateAsync(role, CancellationToken.None);
+            await testFunction.Should().ThrowAsync<ArgumentNullException>();
+        }
+
+        [Fact]
+        public async Task UpdateAsyncTest()
+        {
+            var store = Services.GetRequiredService<IRoleStore<IdentityRole>>();
+
+            var role = CreateRole();
+
+            var createResult = await store.CreateAsync(role, CancellationToken.None);
+            createResult.Should().Be(IdentityResult.Success);
+
+            var foundRole = await store.FindByIdAsync(role.Id, CancellationToken.None);
+            foundRole.Should().NotBeNull();
+            foundRole.Name.Should().Be(role.Name);
+
+            foundRole.Name = "role-update";
+            var updateResult = await store.UpdateAsync(role, CancellationToken.None);
+            updateResult.Should().Be(IdentityResult.Success);
+        }
+
+        [Fact]
+        public async Task UpdateAsyncNullTest()
+        {
+            var store = Services.GetRequiredService<IRoleStore<IdentityRole>>();
+
+            IdentityRole role = null;
+
+            Func<Task> testFunction = async () => await store.UpdateAsync(role, CancellationToken.None);
+            await testFunction.Should().ThrowAsync<ArgumentNullException>();
+        }
+
+        [Fact]
+        public async Task DeleteAsyncTest()
+        {
+            var store = Services.GetRequiredService<IRoleStore<IdentityRole>>();
+
+            var role = CreateRole();
+
+            var createResult = await store.CreateAsync(role, CancellationToken.None);
+            createResult.Should().Be(IdentityResult.Success);
+
+            var foundRole = await store.FindByIdAsync(role.Id, CancellationToken.None);
+            foundRole.Should().NotBeNull();
+            foundRole.Name.Should().Be(role.Name);
+
+            var deleteResult = await store.DeleteAsync(foundRole, CancellationToken.None);
+            deleteResult.Should().Be(IdentityResult.Success);
+
+        }
+
+        [Fact]
+        public async Task DeleteAsyncNullTest()
+        {
+            var store = Services.GetRequiredService<IRoleStore<IdentityRole>>();
+
+            IdentityRole role = null;
+
+            Func<Task> testFunction = async () => await store.DeleteAsync(role, CancellationToken.None);
+            await testFunction.Should().ThrowAsync<ArgumentNullException>();
+        }
+
+
     }
 }
