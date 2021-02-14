@@ -2,7 +2,7 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <IsAspNetCoreApp>true</IsAspNetCoreApp>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>

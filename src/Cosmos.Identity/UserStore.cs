@@ -66,7 +66,8 @@ namespace Cosmos.Identity
             ValidateParameters(user, cancellationToken);
 
             var matchedLogins = user.Logins
-                .Where(u => u.LoginProvider == loginProvider && u.ProviderKey == providerKey);
+                .Where(u => u.LoginProvider == loginProvider && u.ProviderKey == providerKey)
+                .ToList();
 
             foreach (var matchedLogin in matchedLogins)
                 user.Logins.Remove(matchedLogin);
