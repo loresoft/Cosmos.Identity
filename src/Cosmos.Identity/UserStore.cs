@@ -126,6 +126,9 @@ namespace Cosmos.Identity
 
         public Task SetNormalizedUserNameAsync(TUser user, string normalizedName, CancellationToken cancellationToken)
         {
+            if (normalizedName == null)
+                throw new ArgumentNullException(nameof(normalizedName));
+
             ValidateParameters(user, cancellationToken);
 
             user.NormalizedUserName = normalizedName;
@@ -611,10 +614,7 @@ namespace Cosmos.Identity
         #endregion
 
         #region IDisposable
-        public void Dispose()
-        {
-
-        }
+        public void Dispose() { }
         #endregion
 
         protected void ValidateParameters(IdentityUser user, CancellationToken cancellationToken)

@@ -8,6 +8,9 @@ namespace Cosmos.Identity
     {
         public static IdentityBuilder AddCosmosStores(this IdentityBuilder builder)
         {
+            if (builder == null)
+                throw new ArgumentNullException(nameof(builder));
+
             Type userType = builder.UserType;
             Type roleType = builder.RoleType;
 
@@ -19,6 +22,7 @@ namespace Cosmos.Identity
             {
                 throw new InvalidOperationException($"{userType.Name} must extend {typeof(IdentityUser).FullName}.");
             }
+
             if (roleType is null)
             {
                 roleType = typeof(IdentityRole);
@@ -29,7 +33,7 @@ namespace Cosmos.Identity
             }
 
             Type userStoreType = typeof(UserStore<>).MakeGenericType(userType);
-            //Type roleStoreType = typeof(RoleStore<>).MakeGenericType(roleType);
+            Type roleStoreType = typeof(RoleStore<>).MakeGenericType(roleType);
 
             builder.Services.TryAddScoped(typeof(IUserStore<>).MakeGenericType(userType), userStoreType);
             builder.Services.TryAddScoped(typeof(IUserLoginStore<>).MakeGenericType(userType), userStoreType);
@@ -45,7 +49,9 @@ namespace Cosmos.Identity
             builder.Services.TryAddScoped(typeof(IUserAuthenticatorKeyStore<>).MakeGenericType(userType), userStoreType);
             builder.Services.TryAddScoped(typeof(IUserTwoFactorRecoveryCodeStore<>).MakeGenericType(userType), userStoreType);
             builder.Services.TryAddScoped(typeof(IUserRoleStore<>).MakeGenericType(userType), userStoreType);
-            //builder.Services.TryAddScoped(typeof(IRoleStore<>).MakeGenericType(roleType), roleStoreType);
+
+            builder.Services.TryAddScoped(typeof(IRoleStore<>).MakeGenericType(roleType), roleStoreType);
+            builder.Services.TryAddScoped(typeof(IRoleClaimStore<>).MakeGenericType(roleType), roleStoreType);
 
             return builder;
         }

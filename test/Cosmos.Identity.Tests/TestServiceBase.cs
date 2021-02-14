@@ -74,6 +74,20 @@ namespace Cosmos.Identity.Tests
 
             return user;
         }
+
+        protected virtual IdentityRole CreateRole()
+        {
+            string name = "Role" + DateTime.Now.Ticks;
+
+            var role = new IdentityRole
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = name,
+                NormalizedName = name.ToUpperInvariant(),
+            };
+
+            return role;
+        }
     }
 
 }
