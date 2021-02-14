@@ -28,9 +28,9 @@ namespace Cosmos.Identity
         IUserRoleStore<TUser>
         where TUser : IdentityUser
     {
-        private const string InternalLoginProvider = "[AspNetUserStore]";
-        private const string AuthenticatorKeyTokenName = "AuthenticatorKey";
-        private const string RecoveryCodeTokenName = "RecoveryCodes";
+        public const string InternalLoginProvider = "InternalProvider";
+        public const string AuthenticatorKeyTokenName = "AuthenticatorKey";
+        public const string RecoveryCodeTokenName = "RecoveryCodes";
 
         public UserStore(
             ILoggerFactory logFactory,

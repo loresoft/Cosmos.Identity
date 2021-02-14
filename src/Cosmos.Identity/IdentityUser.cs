@@ -14,6 +14,8 @@ namespace Cosmos.Identity
             Tokens = new List<IdentityToken>();
 
             Roles = new HashSet<string>();
+
+            SecurityStamp = Guid.NewGuid().ToString("N");
         }
 
         public string UserName { get; set; }

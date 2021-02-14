@@ -21,23 +21,17 @@ namespace Cosmos.Identity.Tests
         {
             var store = Services.GetRequiredService<IUserAuthenticatorKeyStore<IdentityUser>>();
 
-            string key = "authenticator-key";
+            var user = CreateUser();
 
-            string userName = "UserName" + DateTime.Now.Ticks;
-            var user = new IdentityUser
-            {
-                Id = Guid.NewGuid().ToString(),
-                UserName = userName,
-                NormalizedUserName = userName.ToUpperInvariant()
-            };
+            string key = "authenticator-key";
 
             await store.SetAuthenticatorKeyAsync(user, key, CancellationToken.None);
 
             user.Tokens.Should().NotBeNull();
             user.Tokens.Should().NotBeEmpty();
 
-            user.Tokens[0].LoginProvider.Should().Be("[AspNetUserStore]");
-            user.Tokens[0].Name.Should().Be("AuthenticatorKey");
+            user.Tokens[0].LoginProvider.Should().Be(UserStore<IdentityUser>.InternalLoginProvider);
+            user.Tokens[0].Name.Should().Be(UserStore<IdentityUser>.AuthenticatorKeyTokenName);
             user.Tokens[0].Value.Should().Be(key);
         }
 
@@ -46,26 +40,17 @@ namespace Cosmos.Identity.Tests
         {
             var store = Services.GetRequiredService<IUserAuthenticatorKeyStore<IdentityUser>>();
 
-            string loginProvider = "[AspNetUserStore]";
-            string name = "AuthenticatorKey";
-            string value = "provider-key";
 
-            string userName = "UserName" + DateTime.Now.Ticks;
-            var user = new IdentityUser
+            var user = CreateUser();
+
+            string value = "provider-key-" + DateTime.Now.Ticks;
+
+            user.Tokens.Add(new IdentityToken
             {
-                Id = Guid.NewGuid().ToString(),
-                UserName = userName,
-                NormalizedUserName = userName.ToUpperInvariant(),
-                Tokens = new List<IdentityToken>
-                {
-                    new IdentityToken
-                    {
-                        LoginProvider = loginProvider,
-                        Name = name,
-                        Value = value
-                    }
-                }
-            };
+                LoginProvider = UserStore<IdentityUser>.InternalLoginProvider,
+                Name = UserStore<IdentityUser>.AuthenticatorKeyTokenName,
+                Value = value
+            });
 
             var token = await store.GetAuthenticatorKeyAsync(user, CancellationToken.None);
 
