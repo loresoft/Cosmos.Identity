@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Cosmos.Abstracts;
 using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +23,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = "UserName" + DateTime.Now.Ticks,
                 TwoFactorEnabled = false
             };
@@ -38,7 +39,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = "UserName" + DateTime.Now.Ticks,
                 TwoFactorEnabled = true
             };
@@ -54,7 +55,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = "UserName" + DateTime.Now.Ticks,
                 TwoFactorEnabled = true
             };

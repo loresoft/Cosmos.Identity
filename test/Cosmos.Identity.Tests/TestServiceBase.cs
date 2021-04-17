@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Xunit.Abstractions;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using Cosmos.Abstracts;
 
 namespace Cosmos.Identity.Tests
 {
@@ -62,7 +63,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = userName,
                 NormalizedUserName = userName.ToUpperInvariant(),
                 Email = $"{userName}@mailinator.com",
@@ -81,7 +82,7 @@ namespace Cosmos.Identity.Tests
 
             var role = new IdentityRole
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 Name = name,
                 NormalizedName = name.ToUpperInvariant(),
             };

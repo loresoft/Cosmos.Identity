@@ -8,6 +8,7 @@ using Xunit.Abstractions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using System.Threading;
+using Cosmos.Abstracts;
 using FluentAssertions;
 
 namespace Cosmos.Identity.Tests
@@ -26,7 +27,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
             };
 
             var userId = await store.GetUserIdAsync(user, CancellationToken.None);
@@ -40,7 +41,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = "UserName" + DateTime.Now.Ticks
             };
 
@@ -56,7 +57,7 @@ namespace Cosmos.Identity.Tests
             string userName = "UserName" + DateTime.Now.Ticks;
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString()
+                Id = ObjectId.GenerateNewId().ToString()
             };
 
             await store.SetUserNameAsync(user, userName, CancellationToken.None);
@@ -70,7 +71,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = "UserName" + DateTime.Now.Ticks,
             };
 
@@ -87,7 +88,7 @@ namespace Cosmos.Identity.Tests
 
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = "UserName" + DateTime.Now.Ticks,
             };
             var normalizedUserName = user.UserName.ToUpperInvariant();
@@ -199,7 +200,7 @@ namespace Cosmos.Identity.Tests
         {
             var store = Services.GetRequiredService<IUserStore<IdentityUser>>();
 
-            var userId = Guid.NewGuid().ToString();
+            var userId = ObjectId.GenerateNewId().ToString();
 
             var foundUser = await store.FindByIdAsync(userId, CancellationToken.None);
             foundUser.Should().BeNull();

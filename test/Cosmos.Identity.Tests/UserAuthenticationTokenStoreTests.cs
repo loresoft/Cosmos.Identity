@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Cosmos.Abstracts;
 using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +29,7 @@ namespace Cosmos.Identity.Tests
             string userName = "UserName" + DateTime.Now.Ticks;
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = userName,
                 NormalizedUserName = userName.ToUpperInvariant()
             };
@@ -55,7 +56,7 @@ namespace Cosmos.Identity.Tests
             string userName = "UserName" + DateTime.Now.Ticks;
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = userName,
                 NormalizedUserName = userName.ToUpperInvariant(),
                 Tokens = new List<IdentityToken>
@@ -87,7 +88,7 @@ namespace Cosmos.Identity.Tests
             string userName = "UserName" + DateTime.Now.Ticks;
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = userName,
                 NormalizedUserName = userName.ToUpperInvariant(),
                 Tokens = new List<IdentityToken>
@@ -119,7 +120,7 @@ namespace Cosmos.Identity.Tests
             string userName = "UserName" + DateTime.Now.Ticks;
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = userName,
                 NormalizedUserName = userName.ToUpperInvariant(),
                 Tokens = new List<IdentityToken>
@@ -151,7 +152,7 @@ namespace Cosmos.Identity.Tests
             string userName = "UserName" + DateTime.Now.Ticks;
             var user = new IdentityUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = ObjectId.GenerateNewId().ToString(),
                 UserName = userName,
                 NormalizedUserName = userName.ToUpperInvariant(),
                 Tokens = new List<IdentityToken>

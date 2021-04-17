@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Cosmos.Abstracts;
 using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,7 +36,7 @@ namespace Cosmos.Identity.Tests
         {
             var store = Services.GetRequiredService<IRoleStore<IdentityRole>>();
 
-            var roleId = Guid.NewGuid().ToString();
+            var roleId = ObjectId.GenerateNewId().ToString();
 
             var foundRole = await store.FindByIdAsync(roleId, CancellationToken.None);
             foundRole.Should().BeNull();
