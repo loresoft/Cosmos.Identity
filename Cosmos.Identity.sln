@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Identity", "src\Cosmos.Identity\Cosmos.Identity.csproj", "{280BCC06-DC66-48F4-89A5-BC7E15E6BD2C}"
 EndProject
@@ -9,18 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Identity.Tests", "te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{2DBB4192-B9EF-43A0-A409-0EA1B63AA4D0}"
 	ProjectSection(SolutionItems) = preProject
-		appveyor.yml = appveyor.yml
-		build\common.props = build\common.props
-		coveralls.ps1 = coveralls.ps1
 		coverlet.runsettings = coverlet.runsettings
+		src\Directory.Build.props = src\Directory.Build.props
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		README.md = README.md
-		build\sourcelink.props = build\sourcelink.props
-		build\version.props = build\version.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{D4FCB89C-143F-4526-ACF3-4EF8BD035C01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Website", "samples\Sample.Website\Sample.Website.csproj", "{0841A17B-ED44-436C-8BEE-E156E6A3B8ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Website", "samples\Sample.Website\Sample.Website.csproj", "{0841A17B-ED44-436C-8BEE-E156E6A3B8ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
