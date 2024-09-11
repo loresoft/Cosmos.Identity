@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cosmos.Abstracts" Version="6.1.0" />
+    <PackageReference Include="Cosmos.Abstracts" Version="6.2.2" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.8" />
   </ItemGroup>
 
